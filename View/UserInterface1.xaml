@@ -1,0 +1,62 @@
+﻿<Window x:Class="ColumnDimensions.View.UserInterface1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColumnDimensions.View"
+        mc:Ignorable="d"
+        Title="Column Dimensions" Height="350" Width="300"  Background="Transparent" BorderBrush="Transparent">
+    <Border CornerRadius="0" MouseLeftButtonDown="Border_MouseLeftButtonDown" BorderBrush="Transparent" >
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#2e3967"></GradientStop>
+                <GradientStop Color="#192559" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Grid>
+            <Border Padding="10" >
+
+                <StackPanel>
+
+                    <TextBlock Text="ENG/Moustafa Safwat" FontSize="15" FontWeight="Bold" Foreground="AntiqueWhite" HorizontalAlignment="Center" Margin="0 0 0 10"></TextBlock>
+                    
+                    <!--#region Select Column Layer -->
+                    <TextBlock Text="Select Column Layer" Foreground="#f8fefa"></TextBlock>
+                    <ComboBox  Background="green" ItemsSource="{Binding CadLAyers}" SelectedItem="{Binding SelectedLayerColumn}" SelectedIndex="0" Margin="0 0 0 10"></ComboBox>
+                    <!--#endregion-->
+
+                    <!--#region Select Axis Layer -->
+                    <TextBlock Text="Select Axis Layer" Foreground="#f8fefa"></TextBlock>
+                    <ComboBox ItemsSource="{Binding CadLAyers}" SelectedItem="{Binding SelectedLayerAxis}" SelectedIndex="0" Margin="0 0 0 10"></ComboBox>
+                    <!--#endregion-->
+
+                    <!--#region Select Text Style -->
+                    <TextBlock Text="Select Text Style" Foreground="#f8fefa"></TextBlock>
+                    <ComboBox ItemsSource="{Binding CadDimensionStyles}" SelectedItem="{Binding SelectedDimStyle}" SelectedValue="0" Margin="0 0 0 10"></ComboBox>
+                    <!--#endregion-->
+
+                    <!--#region Add Rab of Select text layer -->
+                    <TextBlock Text="Select Text LAyer" Foreground="#f8fefa"></TextBlock>
+                    <ComboBox ItemsSource="{Binding CadLAyers}" SelectedItem="{Binding SelectedDimLayer}" SelectedValue="0" Margin="0 0 0 10"></ComboBox>
+                    <!--#endregion-->
+
+                    <!--#region Distance To -->
+                    <TextBlock Text="Distance To : " Foreground="#f8fefa"></TextBlock>
+                    <TextBox Margin="0 3 0 0" Text="{Binding DistanceTo}"  ></TextBox>
+                    <!--#endregion-->
+
+                    <!--#region Buttons -->
+                    <Border Padding="10">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Width="50" Height="20" Content="Run" Margin="0 0 10 0" Command="{Binding Run}"></Button>
+                            <Button Width="50" Height="20" Content="cancel" Margin="10 0 0 0" Command="{Binding Close}"></Button>
+                        </StackPanel>
+                    </Border>
+                    <!--#endregion-->
+
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
